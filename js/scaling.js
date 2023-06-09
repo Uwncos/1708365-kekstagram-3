@@ -1,7 +1,8 @@
 const zoomInElement = document.querySelector('.scale__control--bigger');
 const zoomOutElement = document.querySelector('.scale__control--smaller');
-const scaleValueElement = document.querySelector('.scale__control--value');
 const imgElement = document.querySelector('.img-upload__preview');
+
+export const scaleValueElement = document.querySelector('.scale__control--value');
 
 zoomOutElement.addEventListener('click', () => {
   const intScale = parseInt(scaleValueElement.value, 10);

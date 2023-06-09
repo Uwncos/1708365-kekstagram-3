@@ -3,7 +3,7 @@ const container = document.querySelector('.pictures');
 
 export function renderThumbnails(photos) {
   const pictureFragment = document.createDocumentFragment();
-  for (const {id, url, description, likes, comments} of photos) {
+  for (const {url, likes, comments} of photos) {
     const picture = pictureTemplate.cloneNode(true).content;
     picture.querySelector('.picture__img').src = url;
     picture.querySelector('.picture__likes').textContent = likes;

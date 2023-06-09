@@ -9,6 +9,10 @@ const pristine  = new Pristine(form, {
   errorTextTag: 'span',
   errorTextClass: 'form__error'
 });
+const stringTester = /^#[A-Za-zА-Яа-яЁё0-9]{1,19}$/;
+
+pristine.addValidator(document.querySelector('.text__hashtags'),
+  validateHashtag, 'Длина хэштэга не более 20 символов, начните с #');
 
 pristine.addValidator(form.querySelector('.text__description'),
   validateComment, 'Длина комментария - от 20 до 140 символов');
@@ -19,6 +23,10 @@ form.addEventListener('submit', (e) => {
   }
 });
 
-function validateComment(element) {
+export function validateComment(element) {
   return !isStringInSize(element, 19) && isStringInSize(element, 140);
+}
+
+export function validateHashtag(hash) {
+  return stringTester.test(hash) || isStringInSize(hash, 0);
 }
